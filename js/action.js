@@ -82,3 +82,35 @@ $('#testimonials > .tools > .fa-long-arrow-right').click(function(){
 });
 
 $('#projects').html( renderProjects( projects ) );
+
+$('#projects > .filter > .option').click(function(){
+    var option_text = $(this).text();
+
+    if ( option_text === 'All categories' ) {
+        $('#projects > .list > .item').show();
+    } else {
+        $('#projects > .list > .item').each(function(){
+            var ar_radai = false;
+            $(this).find('.texts > .tags > .tag').each(function(){
+                if ( $(this).text() === option_text ) {
+                    ar_radai = true;
+                }
+            });
+            if ( ar_radai === true ) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    }
+});
+
+$('#main_header .menu-icon.fa-bars').click(function(){
+    $('body').toggleClass('menu-visible');
+});
+
+$('#main_header .menu-icon.fa-times').click(function(){
+    $('body').addClass('hiding-menu');
+
+    setTimeout(function(){ $('body').removeClass('menu-visible hiding-menu') }, 1000);
+});

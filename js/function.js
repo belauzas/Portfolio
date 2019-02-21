@@ -237,15 +237,15 @@ function renderTestimonials( data, index ) {
 /**
  * Rendering project widget with filtering functionality
  * @param {object} data - Project list (array)
- * @param {string} name - Project name
- * @param {number} age - Project age
  * @returns {string} Projects HTML
  */
-function renderProjects( data, name, age ) {
+function renderProjects( data ) {
     var HTML = '',
         HTML_categories = '',
         HTML_items = '',
-        HTML_tags = '';
+        HTML_tags = '',
+        unique_tags = [],
+        all_tags = [];
     
     if ( typeof(data) !== 'object' ||
          data.length < 1 ) {
@@ -261,6 +261,7 @@ function renderProjects( data, name, age ) {
             HTML_tags = '';
             for ( var t=0; t< data[i].tags.length; t++ ) {
                 HTML_tags += `<div class="tag">${data[i].tags[t]}</div>`;
+                all_tags.push(data[i].tags[t]);
             }
             HTML_items += `<a href="${data[i].url}" class="item" style="background-image: url(img/projects/${data[i].img});">
                                 <div class="texts">
@@ -270,6 +271,19 @@ function renderProjects( data, name, age ) {
                                 <div class="background"></div>
                             </a>`;
         }
+    }
+
+    // is unikaliu tagu konstruojame filtra
+    var tags_count = all_tags.length;
+    for ( var i=0; i<tags_count; i++ ) {
+        // jeigu einamojo tago dar neturiu tarp unikaliu tagu saraso - pridedu/itraukiu
+        if ( !unique_tags.includes( all_tags[i] ) ) {
+            unique_tags.push(all_tags[i]);
+        }
+    }
+
+    for ( var i=0; i<unique_tags.length; i++ ) {
+        HTML_categories += `<div class="option">${unique_tags[i]}</div>`;
     }
 
     HTML = `<div class="filter">
