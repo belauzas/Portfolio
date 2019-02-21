@@ -4,6 +4,8 @@ body * {
     padding: 0;
     vertical-align: top;
     box-sizing: border-box;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .bg-white {
@@ -61,8 +63,8 @@ header {
     }
 
 .section-header {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: left;
+    margin-bottom: 40px;
 }
     .section-header > h2 {
         font-size: 48px;
@@ -158,18 +160,101 @@ header {
             height: 80px;
             border: 2px solid #90ACD1;
             border-radius: 50%;
+            margin-bottom: 10px;
         }
         .cards > .card > .number {
-            margin: 10px 0;
             font-size: 32px;
             font-weight: bold;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 10px;
         }
         .cards > .card > h4 {
             font-size: 14px;
             text-transform: uppercase;
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin-bottom: 10px;
         }
+        .cards > .card > p {
+            font-size: 14px;
+        }
+        .cards > .card > *:last-child {
+            margin-bottom: 0;
+        }
+
+.container > .row > p {
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 40px;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.jobs {
+    display: inline-block;
+    width: 100%;
+}
+    .jobs > .job {
+        display: inline-block;
+        width: calc( (100% - 30px) / 2 );
+        float: left;
+        padding: 40px 30px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+        background-color: #F9F9FF;
+        border-radius: 10px;
+    }
+    .jobs > .job:nth-child(2n) {
+        margin-right: 0;
+    }
+    .jobs > .job:last-child {
+        margin-bottom: 0;
+    }
+    .jobs > .job:hover {
+        background-color: #90ACD1;
+        cursor: pointer;
+    }
+        .jobs > .job > .top {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+            .top > .titles {
+                display: inline-block;
+                width: calc(100% - 186px);
+                float: left;
+            }
+                .top > .titles > h4 {
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 16px;
+                    line-height: 20px;
+                }
+                .top > .titles > address {
+                    display: inline-block;
+                    width: 100%;
+                    font-size: 13px;
+                    line-height: 20px;
+                }
+        .jobs > .job > .btn {
+            float: right;
+        }
+        .jobs > .job > p {
+            display: inline-block;
+            width: 100%;
+            font-size: 14px;
+            line-height: 20px;
+        }
+    
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #90ACD1;
+    background-color: #FFF;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #000;
+    border-radius: 20px;
+}
 
 .back-to-top {
 

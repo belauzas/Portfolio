@@ -2,4 +2,8 @@
 
 $('.client-carousell').html( clientCarousell( client_carousell ) );
 
-$('.cards').html( renderCards( personal_numbers ) );
+$('#personal_numbers').html( renderCards( personal_numbers ) );
+
+$('#services').html( renderCards( services ) );
+
+$('#jobs').html( renderJobs( jobs ) );
