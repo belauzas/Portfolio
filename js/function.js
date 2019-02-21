@@ -233,3 +233,52 @@ function renderTestimonials( data, index ) {
 
     return HTML;
 }
+
+/**
+ * Rendering project widget with filtering functionality
+ * @param {object} data - Project list (array)
+ * @param {string} name - Project name
+ * @param {number} age - Project age
+ * @returns {string} Projects HTML
+ */
+function renderProjects( data, name, age ) {
+    var HTML = '',
+        HTML_categories = '',
+        HTML_items = '',
+        HTML_tags = '';
+    
+    if ( typeof(data) !== 'object' ||
+         data.length < 1 ) {
+        return '';
+    }
+
+    for ( var i=0; i< data.length; i++ ) {
+        if ( typeof(data[i].img) === 'string' &&
+             data[i].img.length > 0 &&
+             typeof(data[i].name) === 'string' &&
+             data[i].name.length > 0 &&
+             data[i].tags.length > 0 ) {
+            HTML_tags = '';
+            for ( var t=0; t< data[i].tags.length; t++ ) {
+                HTML_tags += `<div class="tag">${data[i].tags[t]}</div>`;
+            }
+            HTML_items += `<a href="${data[i].url}" class="item" style="background-image: url(img/projects/${data[i].img});">
+                                <div class="texts">
+                                    <div class="project-name">${data[i].name}</div>
+                                    <div class="tags">${HTML_tags}</div>
+                                </div>
+                                <div class="background"></div>
+                            </a>`;
+        }
+    }
+
+    HTML = `<div class="filter">
+                <div class="option active">All categories</div>
+                ${HTML_categories}
+            </div>
+            <div class="list">
+                ${HTML_items}
+            </div>`;
+
+    return HTML;
+}

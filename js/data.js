@@ -124,3 +124,42 @@ var testimonials = [
         text: 'It content of a page when looking at its layout is a long established fact that a reader will be distracted by the readable.'
     }
 ];
+
+var projects = [
+    {
+        name: 'Pomidoras',
+        tags: ['Web design', 'Branding'],
+        img: 'w1.jpg',
+        url: '#'
+    },
+    {
+        name: 'Agurkas',
+        tags: ['Branding'],
+        img: 'w2.jpg',
+        url: '#'
+    },
+    {
+        name: 'Česnakas',
+        tags: ['Creative work'],
+        img: 'w3.jpg',
+        url: '#'
+    },
+    {
+        name: 'Krapas',
+        tags: ['Creative work', 'Branding'],
+        img: 'w4.jpg',
+        url: '#'
+    },
+    {
+        name: 'Kalafioras',
+        tags: ['Web design'],
+        img: 'w5.jpg',
+        url: '#'
+    },
+    {
+        name: 'Bulve',
+        tags: ['Web design', 'Branding', 'Creative work'],
+        img: 'w6.jpg',
+        url: '#'
+    }
+];

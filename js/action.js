@@ -80,3 +80,5 @@ $('#testimonials > .tools > .fa-long-arrow-right').click(function(){
         );
     }
 });
+
+$('#projects').html( renderProjects( projects ) );
