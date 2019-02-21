@@ -12,3 +12,5 @@ setInterval(
     clientAnimation,
     1000
 );
+
+$('#testimonials > .list').html( renderTestimonials( testimonials, testimonials_index ) );

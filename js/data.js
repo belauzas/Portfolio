@@ -105,3 +105,22 @@ var jobs = [
         description: 'AIt has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.'
     }
 ];
+
+var testimonials_index = 1;
+var testimonials = [
+    {
+        author: 'Vardenis Pavardenis',
+        stars: 5,
+        text: 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.'
+    },
+    {
+        author: 'Jonas Kazlauskas',
+        stars: 5,
+        text: 'Geras durnius!'
+    },
+    {
+        author: 'Maryte Melnikaite',
+        stars: 4,
+        text: 'It content of a page when looking at its layout is a long established fact that a reader will be distracted by the readable.'
+    }
+];

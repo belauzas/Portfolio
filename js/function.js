@@ -168,3 +168,56 @@ function clientAnimation() {
 
     return;
 }
+
+
+
+function renderTestimonials( data, index ) {
+    var HTML = '',
+        testimonial,
+        HTML_show = ' style="display: inline-block;"',
+        HTML_hide = ' style="display: none;"',
+        HTML_stars = '';
+
+    if ( typeof(data) !== 'object' ||
+        data.length < 1 ) {
+        return HTML;
+    }
+
+    if ( typeof(index) !== 'number' ||
+        index < 1 ||
+        index > data.length ) {
+        index = 1;
+    }
+
+    for ( var i=0; i<data.length; i++ ) {
+        testimonial = data[i];
+
+        if ( typeof(testimonial.author) === 'string' &&
+             testimonial.author.length > 0 &&
+             typeof(testimonial.text) === 'string' &&
+             testimonial.text.length > 0 ) {
+            
+            HTML_stars = '';
+            for ( var z=0; z<testimonial.stars; z++ ) {
+                HTML_stars += '<div class="fa fa-star"></div>';
+            }
+            // comment loop (for) below, if want to display only given stars
+            for ( var z=0; z<5-(testimonial.stars); z++ ) {
+                HTML_stars += '<div class="fa fa-star-o"></div>';
+            }
+
+            HTML += `<div class="item" ${ i+1 === index ? HTML_show : HTML_hide }>
+                        <div class="quote">99</div>
+                        <h4>${testimonial.author}</h4>
+                        <div class="stars">${HTML_stars}</div>
+                        <p>${testimonial.text}</p>
+                    </div>`;
+        }
+    }
+
+    // update bar position
+    var bar_margin = (100 / data.length) * (index - 1);
+    $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
+
+    return HTML;
+}

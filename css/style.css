@@ -326,46 +326,65 @@ header {
 
 
 .testimonials {
-
+    display: inline-block;
+    width: 100%;
 }
     .testimonials > .list {
-        
+        display: inline-block;
+        width: 100%;
     }
         .testimonials > .list > .item {
-            
+            display: inline-block;
+            width: 100%;
+            text-align: center;
         }
-            .testimonials > .list > .item {
+            .testimonials > .list > .item > * {
                 
             }
-                .testimonials > .list > .item > * {
+            .testimonials > .list > .item > .quote {
+                margin-bottom: 40px;
+                color: #CCC;
+                font-size: 48px;
+                line-height: 50px;
+            }
+            .testimonials > .list > .item > h4 {
+                font-size: 20px;
+                line-height: 20px;
+            }
+            .testimonials > .list > .item > .stars {
+                margin-top: 20px;
+                color: rgb(255, 196, 0);
+            }
+                .testimonials > .list > .item > .stars > .fa {
                     
                 }
-                .testimonials > .list > .item > .quote {
-                    
-                }
-                .testimonials > .list > .item > h4 {
-                    
-                }
-                .testimonials > .list > .item > .stars {
-                    
-                }
-                    .testimonials > .list > .item > .stars > .fa {
-                        
-                    }
-                .testimonials > .list > .item > p {
-                    
-                }
+            .testimonials > .list > .item > p {
+                padding: 40px 25%;
+                color: #999;
+            }
     .testimonials > .tools {
-        
+        display: inline-block;
+        margin-left: calc( (100% - 232px) / 2);
     }
+        .testimonials > .tools > * {
+            display: inline-block;
+            float: left;
+        }
         .testimonials > .tools > .fa {
-            
+            width: 21px;
+            font-size: 21px;
+            line-height: 20px;
         }
         .testimonials > .tools > .bar {
-            
+            width: 150px;
+            height: 4px;
+            margin: 8px 20px;
+            background-color: #CCC;
         }
             .testimonials > .tools > .bar > .scroll {
-                
+                width: calc(100% / 3);
+                height: 100%;
+                background-color: red;
             }
 
 
