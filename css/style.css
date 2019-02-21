@@ -328,6 +328,7 @@ header {
 .testimonials {
     display: inline-block;
     width: 100%;
+    overflow: hidden;
 }
     .testimonials > .list {
         display: inline-block;

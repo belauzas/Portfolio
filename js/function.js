@@ -170,13 +170,17 @@ function clientAnimation() {
 }
 
 
-
+/**
+ * Testimonials
+ * @param {object} data - Testinomials list (array)
+ * @param {number} index - Index of default visible testimonial
+ * @returns {string} Testimonials HTML
+ */
 function renderTestimonials( data, index ) {
     var HTML = '',
         testimonial,
-        HTML_show = ' style="display: inline-block;"',
-        HTML_hide = ' style="display: none;"',
-        HTML_stars = '';
+        HTML_stars = '',
+        position = 0;
 
     if ( typeof(data) !== 'object' ||
         data.length < 1 ) {
@@ -189,8 +193,14 @@ function renderTestimonials( data, index ) {
         index = 1;
     }
 
-    for ( var i=0; i<data.length; i++ ) {
-        testimonial = data[i];
+    for ( var i=-1; i<data.length+1; i++ ) {
+        // making clones before / after original testimonials
+        if ( i === -1 ) {
+            position = data.length-1;
+        } else {
+            position = i % data.length;
+        }
+        testimonial = data[position];
 
         if ( typeof(testimonial.author) === 'string' &&
              testimonial.author.length > 0 &&
@@ -206,7 +216,7 @@ function renderTestimonials( data, index ) {
                 HTML_stars += '<div class="fa fa-star-o"></div>';
             }
 
-            HTML += `<div class="item" ${ i+1 === index ? HTML_show : HTML_hide }>
+            HTML += `<div class="item"  style="width: ${100/(data.length+2)}%;">
                         <div class="quote">99</div>
                         <h4>${testimonial.author}</h4>
                         <div class="stars">${HTML_stars}</div>
@@ -214,6 +224,8 @@ function renderTestimonials( data, index ) {
                     </div>`;
         }
     }
+
+    $('#testimonials > .list').css('width', 100*(data.length+2)+'%').css('margin-left', (-100*index)+'%');
 
     // update bar position
     var bar_margin = (100 / data.length) * (index - 1);

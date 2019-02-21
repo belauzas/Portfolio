@@ -18,47 +18,65 @@ $('#testimonials > .list').html( renderTestimonials( testimonials, testimonials_
 
 
 $('#testimonials > .tools > .fa-long-arrow-left').click(function(){
-    var index_visible = $('#testimonials > .list > .item[style="display: inline-block;"]').index(),
+    var index_visible = $('#testimonials > .list > .item').index(),
         total = $('#testimonials > .list > .item').length;
-    
-    if ( index_visible > 0 ) {
-        // update bar position
-        var bar_margin = (100 / total) * (index_visible - 1);
-        $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
-    
-        // update testimonials visibility
-        $('#testimonials > .list > .item').hide();
-        $('#testimonials > .list > .item').eq( index_visible - 1 ).css('display','inline-block');
+
+    testimonials_index--;
+
+    // update bar position
+    if ( testimonials_index > 0 ) {
+        // jump to previous
+        var bar_margin = (100 / (total - 2)) * (testimonials_index - 1);
     } else {
-        // update bar position
-        var bar_margin = (100 / total) * (total - 1);
-        $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
-    
-        // update testimonials visibility
-        $('#testimonials > .list > .item').hide();
-        $('#testimonials > .list > .item').eq(total - 1).css('display','inline-block');
+        // jump from first to last
+        var bar_margin = (100 / (total - 2)) * (total - 3);
+        testimonials_index = total - 2;
+    }
+    $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
+
+    if ( testimonials_index  !== total - 2 ) {
+        console.log('A');
+        $( "#testimonials > .list" ).animate({ "margin-left": ( -100 * testimonials_index )+'%' }, "slow");
+    } else {
+        console.log('B');
+        $( "#testimonials > .list" ).css('margin-left', ( -100 * (total - 1) )+'%');
+        $( "#testimonials > .list" ).animate(
+            {
+                "margin-left": ( -100 * (total - 2) )+'%'
+            },
+            "slow"
+        );
     }
 });
 
 $('#testimonials > .tools > .fa-long-arrow-right').click(function(){
-    var index_visible = $('#testimonials > .list > .item[style="display: inline-block;"]').index(),
+    var index_visible = $('#testimonials > .list > .item').index(),
         total = $('#testimonials > .list > .item').length;
-    
-    if ( index_visible+1 < total ) {
-        // update bar position
-        var bar_margin = (100 / total) * (index_visible + 1);
-        $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
-    
-        // update testimonials visibility
-        $('#testimonials > .list > .item').hide();
-        $('#testimonials > .list > .item').eq( index_visible + 1 ).css('display','inline-block');
+
+    testimonials_index++;
+
+    // update bar position
+    if ( testimonials_index < 4 ) {
+        // jump to next
+        var bar_margin = (100 / (total - 2)) * (testimonials_index - 1);
     } else {
-        // update bar position
+        // jump form last to first
         var bar_margin = 0;
-        $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
-    
-        // update testimonials visibility
-        $('#testimonials > .list > .item').hide();
-        $('#testimonials > .list > .item').eq(0).css('display','inline-block');
+        testimonials_index = 1;
+    }
+    $('#testimonials > .tools > .bar > .scroll').css('margin-left', bar_margin+'%');
+
+    if ( testimonials_index  !== 1 ) {
+        $( "#testimonials > .list" ).animate({ "margin-left": ( -100 * testimonials_index )+'%' }, "slow");
+    } else {
+        $( "#testimonials > .list" ).animate(
+            {
+                "margin-left": ( -100 * (total - 1) )+'%'
+            },
+            "slow",
+            function(){
+                $( "#testimonials > .list" ).css('margin-left', '-100%');
+            }
+        );
     }
 });
