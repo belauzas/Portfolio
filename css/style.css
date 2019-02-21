@@ -50,18 +50,36 @@ header {
     .menu > .half-menu {
         display: inline-block;
         float: left;
+        padding: 100px;
         width: 50%;
         height: 100%;
-        background: red;
+        background: rgba(255, 255, 255, 0.9);
         animation-duration: 1s;
+        overflow-y: auto;
     }
+        .menu > .half-menu > a {
+            display: inline-block;
+            width: 100%;
+            text-decoration: none;
+            color: #666;
+            line-height: 20px;
+            padding: 10px 0;
+            text-align: left;
+        }
     .menu > .half-left {
+        padding-left: calc( (100% - 1000px) / 2 );
+        padding-right: 20px;
         animation-name: menu_rolling_left;
     }
     .menu > .half-right {
+        padding-left: 20px;
+        padding-right: calc( (100% - 1000px) / 2 );
         float: right;
         animation-name: menu_rolling_right;
     }
+        .menu > .half-right > a {
+            text-align: right;
+        }
     @keyframes menu_rolling_left {
         0% {
             margin-left: -50%;

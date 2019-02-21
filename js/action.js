@@ -114,3 +114,9 @@ $('#main_header .menu-icon.fa-times').click(function(){
 
     setTimeout(function(){ $('body').removeClass('menu-visible hiding-menu') }, 1000);
 });
+
+$('.menu > .half-menu > a').click(function(){
+    // uzdarome menu
+    $('#main_header .menu-icon.fa-times').trigger('click');
+    // scroliname iki reikiamos sekcijos
+});
