@@ -1,5 +1,7 @@
 "use strict";
 
+var i = 1;
+
 var client_carousell = [
     {
         file_name: 'b1.png',
@@ -25,7 +27,7 @@ var client_carousell = [
 
 var personal_numbers = [
     {
-        icon: 'box',
+        icon: 'archive',
         number: 245,
         text: 'Total projects'
     },
@@ -35,12 +37,12 @@ var personal_numbers = [
         text: 'Trophy won'
     },
     {
-        icon: 'people',
+        icon: 'users',
         number: 288,
         text: 'Experiences staff'
     },
     {
-        icon: 'smile',
+        icon: 'smile-o',
         number: 750,
         text: 'Happy clients'
     }
@@ -53,12 +55,12 @@ var services = [
         p: 'If you’re looking blank casvsettes on the web, you may confuse.'
     },
     {
-        icon: 'chart',
+        icon: 'bar-chart',
         text: 'App Development',
         p: 'If you’re looking blank casvsettes on the web, you may confuse.'
     },
     {
-        icon: 'bulb',
+        icon: 'lightbulb-o',
         text: 'Web Development',
         p: 'If you’re looking blank casvsettes on the web, you may confuse.'
     },

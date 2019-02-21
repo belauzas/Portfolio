@@ -37,7 +37,7 @@ function clientCarousell( logo_list ) {
         }
     }
 
-    return HTML;
+    return HTML+HTML;
 }
 
 /**
@@ -65,7 +65,9 @@ function renderCards( card_list ) {
              card.text.length > 0 ) {
     
             HTML += `<div class="card">
-                        <div class="icon"></div>
+                        <div class="icon">
+                            <i class="fa fa-${card.icon}"></i>
+                        </div>
                         <div class="number">${card.number}</div>
                         <h4>${card.text}</h4>
                     </div>`;
@@ -79,7 +81,9 @@ function renderCards( card_list ) {
              card.p.length > 0 ) {
     
             HTML += `<div class="card">
-                        <div class="icon"></div>
+                        <div class="icon">
+                            <i class="fa fa-${card.icon}"></i>
+                        </div>
                         <h4>${card.text}</h4>
                         <p>${card.p}</p>
                     </div>`;
@@ -144,4 +148,23 @@ function renderJobs( jobs_list ) {
     }
 
     return HTML;
+}
+
+
+
+var margin_left = 0;
+
+function clientAnimation() {
+    var shift = 20;
+    
+    margin_left = margin_left - shift;
+
+    if ( margin_left === -120 ) {
+        margin_left = 0;
+        $( ".client-carousell > div > div" ).css("margin-left", margin_left+'%');
+    } else {
+        $( ".client-carousell > div > div" ).animate({ "margin-left": margin_left+'%' }, "slow");
+    }
+
+    return;
 }

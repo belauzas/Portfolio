@@ -109,11 +109,40 @@ header {
         bottom: 0;
         width: 30%;
     }
+    #hero .texts {
+        margin: 80px 0;
+    }
+        #hero .texts > h1 {
+            margin: 40px 0;
+        }
     #hero img {
         position: absolute;
         right: 40px;
         bottom: 0;
         height: calc(100% - 100px);
+    }
+
+.flag {
+    display: inline-block;
+    padding: 15px 20px;
+    background-color: #90ACD1;
+    color: #FFF;
+    border-radius: 8px;
+    line-height: 20px;
+    font-size: 16px;
+    position: relative;
+}
+    .flag > .triangle {
+        position: absolute;
+        bottom: -15px;
+        right: 0;
+
+        width: 0; 
+        height: 0; 
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent; 
+        
+        border-right:15px solid #90ACD1; 
     }
 
 .client-carousell {
@@ -127,16 +156,28 @@ header {
     line-height: 40px;
     background-color: white;
     position: relative;
+    overflow: hidden;
 }
-    .client-carousell > div {
+    .client-carousell > .box {
         display: inline-block;
         float: left;
-        width: 20%;
-        height: 20px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+        width: 100%;
+        overflow: hidden;
     }
+        .client-carousell > .box > .over {
+            display: inline-block;
+            float: left;
+            width: 100%;
+        }
+            .client-carousell > .box > .over > div {
+                display: inline-block;
+                float: left;
+                width: 20%;
+                height: 20px;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
 
 .cards {
     display: inline-block;
@@ -159,9 +200,18 @@ header {
             width: 80px;
             height: 80px;
             border: 2px solid #90ACD1;
+            background-color: rgb(196, 214, 238);
             border-radius: 50%;
             margin-bottom: 10px;
+            animation-name: card_icon;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
         }
+            .cards > .card > .icon > .fa {
+                line-height: 80px;
+                font-size: 28px;
+                color: #555;
+            }
         .cards > .card > .number {
             font-size: 32px;
             font-weight: bold;
@@ -179,6 +229,20 @@ header {
             margin-bottom: 0;
         }
 
+    @keyframes card_icon {
+        0% {
+            border-radius: 50% 30% 40% 30%;
+        }
+
+        50% {
+            border-radius: 25% 50% 20% 35%;
+        }
+
+        100% {
+            border-radius: 50% 30% 40% 30%;
+        }
+    }
+    
 .container > .row > p {
     display: inline-block;
     width: 50%;
@@ -258,4 +322,82 @@ header {
 
 .back-to-top {
 
+}
+
+
+.testimonials {
+
+}
+    .testimonials > .list {
+        
+    }
+        .testimonials > .list > .item {
+            
+        }
+            .testimonials > .list > .item {
+                
+            }
+                .testimonials > .list > .item > * {
+                    
+                }
+                .testimonials > .list > .item > .quote {
+                    
+                }
+                .testimonials > .list > .item > h4 {
+                    
+                }
+                .testimonials > .list > .item > .stars {
+                    
+                }
+                    .testimonials > .list > .item > .stars > .fa {
+                        
+                    }
+                .testimonials > .list > .item > p {
+                    
+                }
+    .testimonials > .tools {
+        
+    }
+        .testimonials > .tools > .fa {
+            
+        }
+        .testimonials > .tools > .bar {
+            
+        }
+            .testimonials > .tools > .bar > .scroll {
+                
+            }
+
+
+.client-carousell > .box {
+}
+    .client-carousell > .box > .over {
+        width: 200%;
+        /* animation-name: klientai_juda; */
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+    }
+        .client-carousell > .box > .over > div {
+            width: 10%;
+        }
+
+@keyframes klientai_juda {
+    0% {
+        margin-left: 0;
+    }
+    20% {
+        margin-left: -20%;
+    }
+    40% {
+        margin-left: -40%;
+    }
+    60% {
+        margin-left: -60%;
+    }
+    80% {
+        margin-left: -80%;
+    }
+    100% {
+        margin-left: -100%;
+    }
 }
